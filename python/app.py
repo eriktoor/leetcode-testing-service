@@ -11,6 +11,9 @@ http://127.0.0.1:5000/test?q=add_nums&data=def%20hello_world():%20\n\tprint(%22h
 from flask import Flask
 from flask import request
 app = Flask(__name__)
+from flask_cors import CORS
+
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 import json
 
@@ -29,17 +32,22 @@ def throw_something(a1, a2):
 
 def build_file(name, data): 
     f = open (name, "w")
-
-    data = data.replace("\\t", "  ")
-    data = data.replace("\\s", " ")
-    data = data.replace("PLUS", "+")
+    from urllib.parse import unquote
+    # data = data.replace("\\t", "  ")
+    # data = data.replace("\\s", " ")
+    # data = data.replace("PLUS", "+")
+    data = unquote(data)
+    print(data)
     lines = data.split("\\n")
 
     print(lines)
 
     with f as fl: 
-        for line in lines: 
-            f.write(line + "\n")
+        f.write(data)
+
+    # with f as fl: 
+    #     for line in lines: 
+    #         f.write(line + "\n")
 
     f.close()
 
@@ -57,7 +65,7 @@ def check_syntax(q):
         error = None 
     except SyntaxError as err:
         user = None 
-        error = "Syntax error: {0}".format(err)
+        error = "Syntax error: \n{0}".format(err)
 
     return user, error
 
@@ -86,8 +94,9 @@ class info():
         self.std_out = None 
         self.expected = None 
         self.actual = None 
+        self.test = None 
 
-def test_file(q): 
+def test_file(q, testcase): 
     # https://stackoverflow.com/questions/8718885/import-module-from-string-variable
     # import importlib
 
@@ -100,17 +109,17 @@ def test_file(q):
     ts = time.time()
 
     user, err = check_syntax(q + ".user_file")
+    ret.test = testcase
 
     if err:
         ret.error = err
-        print(ret.__dict__)
+        # print(ret.__dict__)
         return ret
 
     sol = importlib.import_module(q + ".solution") 
 
     user_method = getattr(user, q)
     sol_method = getattr(sol, q)
-
 
     correct = 0
     with open("{0}/cases.txt".format(q)) as f: 
@@ -134,6 +143,7 @@ def test_file(q):
                     ret.error = str(error)
             
             ret.actual = sol_method(*args)
+            ret.test = line
 
             if  ret.expected == ret.actual: 
                 correct += 1 
@@ -151,19 +161,30 @@ def test_file(q):
 
     return ret
 
-@app.route("/test")
+
+
+@app.route("/api/test")
 def test():
     s = time.time() 
     # STEP 1: Get Query Parameter Data
-    data, question = request.args.get('data'), request.args.get('q')
+    data, question, testcase = request.args.get('data'), request.args.get('q'),request.args.get('testcase')
     print(data)
 
     # STEP 2: Build File from Query Parameter Data 
+    # os.remove("{0}/user_file.py".format(question))
+    # os.remove("{0}/__pycache__/user_file.cpython-37.pyc".format(question))
+
+    from os import listdir 
+
+    for val in listdir("{0}/__pycache__".format(question)): 
+        os.remove("{0}/__pycache__/{1}".format(question, val))
     build_file("{0}/user_file.py".format(question), data)
 
     # STEP 3: Get API Output and Return it to User
-    info = test_file(question)    
+    info = test_file(question, testcase)    
     print("Took ", time.time() - s, "seconds ")
+
+
     return json.dumps(info.__dict__)
 
 if __name__ == "__main__":
