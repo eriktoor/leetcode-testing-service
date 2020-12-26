@@ -1,7 +1,7 @@
 # leetcode-testing-service
 
 ## Usage 
-```python3 app.py```
+```python3 ./python/app.py```
 
 ## See /python/app.py and def test() for the main function that is currently being worked on 
 
