@@ -166,21 +166,26 @@ def test_file(q, testcase):
 @app.route("/api/test")
 def test():
     s = time.time() 
+    ###########################################################################################
     # STEP 1: Get Query Parameter Data
+    ###########################################################################################
     data, question, testcase = request.args.get('data'), request.args.get('q'),request.args.get('testcase')
     print(data)
 
+    ##########################################################################################
     # STEP 2: Build File from Query Parameter Data 
+    ##########################################################################################
     # os.remove("{0}/user_file.py".format(question))
     # os.remove("{0}/__pycache__/user_file.cpython-37.pyc".format(question))
 
-    from os import listdir 
-
+    from os import listdir # MY ATTEMPT AT CLEANING CACHE
     for val in listdir("{0}/__pycache__".format(question)): 
         os.remove("{0}/__pycache__/{1}".format(question, val))
-    build_file("{0}/user_file.py".format(question), data)
+    build_file("{0}/user_file.py".format(question), data) # Building the File 
 
+    #########################################################################################
     # STEP 3: Get API Output and Return it to User
+    #########################################################################################
     info = test_file(question, testcase)    
     print("Took ", time.time() - s, "seconds ")
 
