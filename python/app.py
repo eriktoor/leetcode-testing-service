@@ -12,8 +12,10 @@ from flask import Flask
 from flask import request
 app = Flask(__name__)
 from flask_cors import CORS
+from flask import jsonify
 
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
 import json
 
@@ -96,7 +98,7 @@ class info():
         self.actual = None 
         self.test = None 
 
-def test_file(q, testcase): 
+def test_file(q, file, testcase): 
     # https://stackoverflow.com/questions/8718885/import-module-from-string-variable
     # import importlib
 
@@ -108,7 +110,7 @@ def test_file(q, testcase):
 
     ts = time.time()
 
-    user, err = check_syntax(q + ".user_file")
+    user, err = check_syntax(q + "." + file)
     ret.test = testcase
 
     if err:
@@ -163,31 +165,45 @@ def test_file(q, testcase):
 
 
 
+@app.route("/api/usertest")
+def user_info(): 
+    from user import user 
+    return user()
+
+@app.route("/api/problemtest")
+def problem_info(): 
+    from question import question 
+    return question()
+
+
 @app.route("/api/test")
 def test():
     s = time.time() 
-    ###########################################################################################
+    ###################################################################
     # STEP 1: Get Query Parameter Data
-    ###########################################################################################
+    ###################################################################
     data, question, testcase = request.args.get('data'), request.args.get('q'),request.args.get('testcase')
     print(data)
 
-    ##########################################################################################
+    ###################################################################
     # STEP 2: Build File from Query Parameter Data 
-    ##########################################################################################
-    # os.remove("{0}/user_file.py".format(question))
-    # os.remove("{0}/__pycache__/user_file.cpython-37.pyc".format(question))
+    ###################################################################
 
-    from os import listdir # MY ATTEMPT AT CLEANING CACHE
+    import random 
+    filename =  "user_file-"+ str(int(time.time())) + "-"  + str(random.randrange(1,100))
+    build_file("{0}/{1}.py".format(question, filename), data)
+    ###################################################################
+    # STEP 3: Get API Output and Return it to User
+    ###################################################################
+    info = test_file(question, filename, testcase)    
+    print("Took ", time.time() - s, "seconds ")
+
+
+    from os import listdir 
+
     for val in listdir("{0}/__pycache__".format(question)): 
         os.remove("{0}/__pycache__/{1}".format(question, val))
-    build_file("{0}/user_file.py".format(question), data) # Building the File 
-
-    #########################################################################################
-    # STEP 3: Get API Output and Return it to User
-    #########################################################################################
-    info = test_file(question, testcase)    
-    print("Took ", time.time() - s, "seconds ")
+    os.remove("{0}/{1}.py".format(question, filename))
 
 
     return json.dumps(info.__dict__)
