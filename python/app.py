@@ -98,7 +98,7 @@ class info():
         self.actual = None 
         self.test = None 
 
-def test_file(q, file, testcase): 
+def test_file(q, file, testcase=None): 
     # https://stackoverflow.com/questions/8718885/import-module-from-string-variable
     # import importlib
 
@@ -124,6 +124,36 @@ def test_file(q, file, testcase):
     sol_method = getattr(sol, q)
 
     correct = 0
+
+    if testcase: 
+        line = testcase.replace("\n","").strip()
+        args_str = line.split(" ")
+        args = [int(i) for i in args_str]
+
+
+        import traceback 
+        with Capturing() as ret.std_out: 
+            try: 
+                ret.expected = user_method(*args)
+            except Exception as error: 
+                print(traceback.format_exc())
+                ret.error = str(error)
+        
+        ret.actual = sol_method(*args)
+        ret.test = line
+
+        if  ret.expected == ret.actual: 
+            correct += 1 
+        else: 
+            ret.failed_test = " ".join(args_str)
+
+        ret.correct = correct 
+        ret.total = 1
+        ret.time = time.time() - ts
+
+        return ret 
+
+
     with open("{0}/cases.txt".format(q)) as f: 
         lines = f.readlines()
         num = len(lines)
@@ -164,20 +194,8 @@ def test_file(q, file, testcase):
     return ret
 
 
-
-@app.route("/api/usertest")
-def user_info(): 
-    from user import user 
-    return user()
-
-@app.route("/api/problemtest")
-def problem_info(): 
-    from question import question 
-    return question()
-
-
-@app.route("/api/test")
-def test():
+@app.route("/api/run")
+def run_code():
     s = time.time() 
     ###################################################################
     # STEP 1: Get Query Parameter Data
@@ -196,6 +214,41 @@ def test():
     # STEP 3: Get API Output and Return it to User
     ###################################################################
     info = test_file(question, filename, testcase)    
+    print("Took ", time.time() - s, "seconds ")
+
+
+    from os import listdir 
+
+    for val in listdir("{0}/__pycache__".format(question)): 
+        os.remove("{0}/__pycache__/{1}".format(question, val))
+    os.remove("{0}/{1}.py".format(question, filename))
+
+
+    return json.dumps(info.__dict__)
+
+
+
+
+@app.route("/api/submit")
+def submit():
+    s = time.time() 
+    ###################################################################
+    # STEP 1: Get Query Parameter Data
+    ###################################################################
+    data, question = request.args.get('data'), request.args.get('q')
+    print(data)
+
+    ###################################################################
+    # STEP 2: Build File from Query Parameter Data 
+    ###################################################################
+
+    import random 
+    filename =  "user_file-"+ str(int(time.time())) + "-"  + str(random.randrange(1,100))
+    build_file("{0}/{1}.py".format(question, filename), data)
+    ###################################################################
+    # STEP 3: Get API Output and Return it to User
+    ###################################################################
+    info = test_file(question, filename)    
     print("Took ", time.time() - s, "seconds ")
 
 
