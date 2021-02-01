@@ -1,2 +1,3 @@
-def add_nums(a,b):
-    return a + b
+class Solution:
+    def add_nums(self, a,b):
+        return a + b

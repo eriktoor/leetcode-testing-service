@@ -1,4 +1,6 @@
 #Using More Routes
+# from flask import request
+# from flask import jsonify
 
 """
 
@@ -8,55 +10,20 @@ http://127.0.0.1:5000/test?q=add_nums&data=def%20hello_world():%20\n\tprint(%22h
 """
 
 
-from flask import Flask
-from flask import request
-app = Flask(__name__)
+from flask import Flask, request, jsonify 
 from flask_cors import CORS
-from flask import jsonify
 
+
+app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
 import json
-
-@app.route("/")
-def hello():
-    return "Hello World!"
-
 import time 
-
-
 import os
-
-def throw_something(a1, a2):
-  raise Exception('Whoops!')
-
-
-def build_file(name, data): 
-    f = open (name, "w")
-    from urllib.parse import unquote
-    # data = data.replace("\\t", "  ")
-    # data = data.replace("\\s", " ")
-    # data = data.replace("PLUS", "+")
-    data = unquote(data)
-    print(data)
-    lines = data.split("\\n")
-
-    print(lines)
-
-    with f as fl: 
-        f.write(data)
-
-    # with f as fl: 
-    #     for line in lines: 
-    #         f.write(line + "\n")
-
-    f.close()
-
-
-
-
 import importlib 
+
+from build_file import build_file
 
 def check_syntax(q): 
 
@@ -123,6 +90,9 @@ def test_file(q, file, testcase=None):
     user_method = getattr(user, q)
     sol_method = getattr(sol, q)
 
+
+    print(user_method)
+
     correct = 0
 
     if testcase: 
@@ -150,6 +120,7 @@ def test_file(q, file, testcase=None):
         ret.correct = correct 
         ret.total = 1
         ret.time = time.time() - ts
+
 
         return ret 
 
@@ -193,6 +164,10 @@ def test_file(q, file, testcase=None):
 
     return ret
 
+
+@app.route("/")
+def hello():
+    return "Hello World!"
 
 @app.route("/api/run")
 def run_code():
@@ -262,5 +237,5 @@ def submit():
     return json.dumps(info.__dict__)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")
     # test_file("add_nums")
