@@ -67,10 +67,12 @@ class info():
 
 
 import re 
-def execute_testcase(ret, testcase, ts, user_method, sol_method): 
+def execute_testcase(ret, testcase, ts, user_method, sol_method, user_class, sol_class): 
 
     if ";" in testcase: 
         testcase.replace(";", "\n")
+
+    print(testcase)
 
     line = testcase.split("\n")
 
@@ -93,18 +95,20 @@ def execute_testcase(ret, testcase, ts, user_method, sol_method):
         else: 
             args.append(arg)
 
+    print("HERE")
+    print(args)
     # args = [int(i) for i in args_str]
 
 
     import traceback 
     with Capturing() as ret.std_out: 
         try: 
-            ret.expected = user_method(None, *args)
+            ret.expected = user_method( *args)
         except Exception as error: 
             print(traceback.format_exc())
             ret.error = str(error)
     
-    ret.actual = sol_method(None, *args)
+    ret.actual = sol_method(*args)
     ret.test = line
 
     if  ret.expected == ret.actual: 
@@ -159,14 +163,13 @@ def test_file(q, file, testcase=None):
     user_class = getattr(user, "Solution" )
     sol_class = getattr(sol, "Solution" )
 
-    user_method = getattr(user_class, q)
-    sol_method = getattr(sol_class, q)
-
+    user_method = getattr(user_class(), q)
+    sol_method = getattr(sol_class(), q)
 
     if testcase: 
         print("test hjhl")
         print(testcase)
-        execute_testcase(ret, testcase, ts , user_method, sol_method)
+        execute_testcase(ret, testcase, ts , user_method, sol_method, user_class, sol_class)
         return ret 
 
 
@@ -184,12 +187,12 @@ def test_file(q, file, testcase=None):
             import traceback 
             with Capturing() as ret.std_out: 
                 try: 
-                    ret.expected = user_method(None, *args)
+                    ret.expected = user_method(*args)
                 except Exception as error: 
                     print(traceback.format_exc())
                     ret.error = str(error)
             
-            ret.actual = sol_method(None, *args)
+            ret.actual = sol_method( *args)
 
             if DELIMETER in  line: 
                 line = line.replace(DELIMETER, " ")
@@ -234,12 +237,15 @@ def run_code():
     ###################################################################
     # STEP 3: Get API Output and Return it to User
     ###################################################################
-    try: 
-        info = test_file(question, filename, testcase)    
-        print("Took ", time.time() - s, "seconds ")
-    except: 
-        print("An error has  occured, probably put line 234 out of try to see stack trace")
-
+    # try: 
+    #     info = test_file(question, filename, testcase)    
+    #     print("Took ", time.time() - s, "seconds ")
+    # except: 
+    #     print("An error has  occured, probably put line 234 out of try to see stack trace")
+    print("IN RUN CODE")
+    print(testcase)
+    info = test_file(question, filename, testcase)    
+    print("Took ", time.time() - s, "seconds ")
 
     ###################################################################
     # STEP 4: Delete Created Files
