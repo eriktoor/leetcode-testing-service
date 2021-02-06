@@ -30,7 +30,7 @@ class Capturing(list):
         sys.stdout = self._stdout
 
 class info():
-    def __init__(self, question, testcase):
+    def __init__(self, question, testcase, filename):
         self.question = question 
         self.error = None 
         self.correct = 0 
@@ -45,14 +45,36 @@ class info():
         self.time_started = None
         self.time_ended = None 
         self.should_break = False 
+        self.filename = filename 
 
     def start_timer(self):
         self.time_started = time.time()
 
     def set_time(self): 
         self.time_ended = time.time() 
-        time_elasped = self.time_ended - self.time_started  
-        self.time = round(1000*time_elasped, 2)
+        time_elasped = time.time() - self.time_started  
+        self.time = round(1000*time_elasped, 0)
+
+    def change_error(self):        
+        if not self.std_out: 
+            if self.error and self.filename in self.error:
+                self.error = self.error.replace(self.filename, "Solution")
+            return 
+
+        std_out = (self.std_out).split("\n")
+        include_line = False 
+        error_arr  = [] 
+
+        for line in std_out: 
+            if self.filename in line or include_line and line != "":
+                line = re.sub('".*.py"', 'Solution.py', line)
+                if self.filename in line: 
+                    line = line.replace(self.filename, 'Solution.py')
+
+                include_line = True  
+                error_arr.append(line)
+
+        self.error = "\n".join(error_arr[::-1])
 
     def cleanup(self): 
         self.set_time() 
@@ -63,6 +85,11 @@ class info():
 
         if self.correct == self.total:
             self.result = "Approved"
+
+        if self.std_out: 
+            self.std_out = "\n".join(self.std_out)
+
+        self.change_error()
 
 
 
@@ -89,11 +116,12 @@ def create_args_array(line, DELIMETER=";"):
     return args, args_str
 
 
+from exit_after_decorator import timeout
 
 
+# @timeout(5)
 
 def execute_testcase(ret, testcase, user_method, sol_method): 
-
     ret.test = testcase
 
     args, args_str = create_args_array(ret.test)
@@ -113,12 +141,15 @@ def execute_testcase(ret, testcase, user_method, sol_method):
 
     if  ret.expected == ret.actual: 
         ret.correct += 1 
-    else: 
+    elif ret.result: 
         ret.failed_test = "\n".join(args_str)
+        ret.should_break = True 
+    else: 
         ret.result = "Wrong Answer"
         ret.should_break = True 
 
     ret.total += 1 
+
 
 
 def test_file(q, file, testcase=None): 
@@ -127,7 +158,7 @@ def test_file(q, file, testcase=None):
     # i = importlib.import_module("matplotlib.text")
     # package = question + ".user_file"
 
-    ret = info(q, testcase) #JSON that will be returned to the user 
+    ret = info(q, testcase, file) #JSON that will be returned to the user 
 
     ###################################################################
     # STEP 1: Get Code for User and Solution File and Ensure that there are no errors 
@@ -135,8 +166,12 @@ def test_file(q, file, testcase=None):
     user, err = check_syntax(q + "." + file)
 
     if err:
+        ret.time_started = time.time()
         ret.error = err
         ret.result = "Compile Error"
+        ret.total += 1
+        ret.testcase = testcase
+        ret.cleanup()
         return ret
 
     sol = importlib.import_module(q + ".solution") 
@@ -147,7 +182,13 @@ def test_file(q, file, testcase=None):
     user_class = getattr(user, "Solution" )
     sol_class = getattr(sol, "Solution" )
 
-    user_method = getattr(user_class(), q)
+    try: 
+        user_method = getattr(user_class(), q)
+    except: 
+        ret.result = "Name Error"
+        ret.error = "Name Error: method has no attribute ", q
+        return ret
+
     sol_method = getattr(sol_class(), q)
     # num_args = user_method.func_code.co_varnames
 
