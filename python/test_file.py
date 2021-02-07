@@ -126,23 +126,13 @@ from multiprocessing import Process, Manager
 
 
 def closure(func, mem, ret, args): 
-    mem[ret.filename] = "1"
-    print(func, mem, ret, args)
-
-    return 
-    print("I AM HERE")
     res = func(*args)
     mem[ret.filename] = res
-    print(res)
 
 
 def run_user_function(function, ret, args):
-    print("hello world")
     timeout = 5
     manager = Manager()
-    print("MADE IT ERE")
-    print(args)
-    # return function(*args)
     mem = manager.dict()
     p = multiprocessing.Process(target=closure, args=(function, mem, ret, args))
     p.start()
@@ -150,24 +140,16 @@ def run_user_function(function, ret, args):
     if p.is_alive():
         # stop the downloading 'thread'
         p.terminate()
-
-        ret.result = "NO NO NO "
-        ret.error = "TIME LIMIT EXCEEDED"
-
-        print("in here")
-        
+        ret.result = "Time Limit Exceeded"
+        ret.error = "Time Limit Exceeded"
+        ret.should_break = True         
         # and then do any post-error processing here
-        print(mem)
 
-    print(mem)
     return mem[ret.filename]
 
 
 
     
-
-
-
 
 def execute_testcase(ret, testcase, user_method, sol_method): 
     ret.test = testcase

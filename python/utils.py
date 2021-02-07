@@ -1,8 +1,3 @@
-
-DELIMETER = ";"
-
-
-
 from urllib.parse import unquote
 
 def build_file(name, data): 
@@ -15,9 +10,7 @@ def build_file(name, data):
     """
     f = open (name, "w")
     data = unquote(data)
-
-    lines = data.split("\\n")
-
+    
     with f as fl: 
         f.write(data)
 
