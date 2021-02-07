@@ -116,10 +116,58 @@ def create_args_array(line, DELIMETER=";"):
     return args, args_str
 
 
-from exit_after_decorator import timeout
 
 
-# @timeout(5)
+import multiprocessing
+
+from multiprocessing import Process, Manager
+
+
+
+
+def closure(func, mem, ret, args): 
+    mem[ret.filename] = "1"
+    print(func, mem, ret, args)
+
+    return 
+    print("I AM HERE")
+    res = func(*args)
+    mem[ret.filename] = res
+    print(res)
+
+
+def run_user_function(function, ret, args):
+    print("hello world")
+    timeout = 5
+    manager = Manager()
+    print("MADE IT ERE")
+    print(args)
+    # return function(*args)
+    mem = manager.dict()
+    p = multiprocessing.Process(target=closure, args=(function, mem, ret, args))
+    p.start()
+    p.join(timeout)
+    if p.is_alive():
+        # stop the downloading 'thread'
+        p.terminate()
+
+        ret.result = "NO NO NO "
+        ret.error = "TIME LIMIT EXCEEDED"
+
+        print("in here")
+        
+        # and then do any post-error processing here
+        print(mem)
+
+    print(mem)
+    return mem[ret.filename]
+
+
+
+    
+
+
+
 
 def execute_testcase(ret, testcase, user_method, sol_method): 
     ret.test = testcase
@@ -129,7 +177,9 @@ def execute_testcase(ret, testcase, user_method, sol_method):
     import traceback 
     with Capturing() as ret.std_out: 
         try: 
-            ret.expected = user_method(*args)
+            ret.expected = user_method(*args) #works but not for TLE Exception
+            # ret.expected = run_user_function(user_method, ret, args) #Will not work on a Windows mahcine but works for TLE exception
+
         except Exception as error: 
             print("Line 129 Traceback Error:")
             print(traceback.format_exc())
