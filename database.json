@@ -1,0 +1,465 @@
+{
+    "problem": {
+
+
+      "sum-of-two-integers": {
+        "id": 1, 
+        "difficulty": "Medium",
+        "arguments": [
+            {
+                "name": "a",
+                "type": "int", 
+                "arg": true 
+            }, 
+            {
+                "name": "b",
+                "type": "int", 
+                "arg": true 
+            }
+        ],
+        "frequency": 55,
+        "returnType": "int", 
+        "description": "Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.", 
+        "examples": [
+            {
+                "input": "a = 1, b = 2", 
+                "output": "3",
+                "explanation": "1 + 2 = 3"
+              }, 
+              {
+                "input": "a = -2, b = 3", 
+                "output": "1",
+                "explanation": "3 + (-2) = 1"
+              }
+        ], 
+        "name": "Sum of Two Integers", 
+        "solution": {
+          "approaches": [
+            {
+              "complexity_analysis": [
+                "This is a statement about runtime", 
+                "This is a statement about space complexity"
+              ], 
+              "encoded_code": "%23%20Definition%20for%20singly-linked%20list.%0A%23%20class%20ListNode(object)%3A%0A%23%20%20%20%20%20def%20__init__(self%2C%20val%3D0%2C%20next%3DNone)%3A%0A%23%20%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%23%20%20%20%20%20%20%20%20%20self.next%20%3D%20next%0Aclass%20Solution(object)%3A%0A%20%20%20%20def%20addTwoNumbers(self%2C%20l1%2C%20l2)%3A%0A%20%20%20%20%20%20%20%20\"\"\"%0A%20%20%20%20%20%20%20%20%3Atype%20l1%3A%20ListNode%0A%20%20%20%20%20%20%20%20%3Atype%20l2%3A%20ListNode%0A%20%20%20%20%20%20%20%20%3Artype%3A%20ListNode%0A%20%20%20%20%20%20%20%20\"\"\"%0A%09%09return%20l1%20%2B%20l2%20%0A%09%20%20%0A%09%20%20", 
+              "explanation": "This is an explanation", 
+              "name": "Brute Force"
+            }, 
+            {
+              "complexity_analysis": [
+                "This is a statement about runtime", 
+                "This is a statement about space complexity"
+              ], 
+              "encoded_code": "%23%20Definition%20for%20singly-linked%20list.%0A%23%20class%20ListNode(object)%3A%0A%23%20%20%20%20%20def%20__init__(self%2C%20val%3D0%2C%20next%3DNone)%3A%0A%23%20%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%23%20%20%20%20%20%20%20%20%20self.next%20%3D%20next%0Aclass%20Solution(object)%3A%0A%20%20%20%20def%20addTwoNumbers(self%2C%20l1%2C%20l2)%3A%0A%20%20%20%20%20%20%20%20\"\"\"%0A%20%20%20%20%20%20%20%20%3Atype%20l1%3A%20ListNode%0A%20%20%20%20%20%20%20%20%3Atype%20l2%3A%20ListNode%0A%20%20%20%20%20%20%20%20%3Artype%3A%20ListNode%0A%20%20%20%20%20%20%20%20\"\"\"%0A%09%09return%20l1%20%2B%20l2%20%0A%09%20%20%0A%09%20%20", 
+              "explanation": "This is an explanation for the best way", 
+              "name": "Smart Force"
+            }
+          ]
+        }, 
+        "hints": [
+            "Add the two numbers in O(1) time", 
+            "Add the two numbers"
+        ],
+        "constraints": [
+            "1 <= val, inc, m <= 100",
+            "0 <= idx <= 10^5"
+        ],
+        "related_topics": [
+            "Math", "Design"
+        ],
+        "companies": [
+            "Amazon", "Google"
+        ],
+        "stats": {
+          "accepted": 201000, 
+          "down": 211, 
+          "submissions": 401121, 
+          "up": 1234
+        }
+       },
+
+
+      "anotha-one": {
+        "id" : 2,
+        "difficulty": "Easy",
+        "frequency": 55,
+        "arguments": [
+            {
+                "name": "a",
+                "type": "int", 
+                "arg": true 
+            }, 
+            {
+                "name": "b",
+                "type": "int", 
+                "arg": true 
+            }
+        ],
+        "returnType": "int", 
+        "description": "Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.", 
+        "examples": [
+          {
+            "input": "a = 1, b = 2", 
+            "output": "3",
+            "explanation": "1 + 2 = 3"
+          }, 
+          {
+            "input": "a = -2, b = 3", 
+            "output": "1",
+            "explanation": "3 + (-2) = 1"
+          }
+        ], 
+        "name": "Anotha 1", 
+        "solution": {
+          "approaches": [
+            {
+              "complexity_analysis": [
+                "This is a statement about runtime", 
+                "This is a statement about space complexity"
+              ], 
+              "encoded_code": "%23%20Definition%20for%20singly-linked%20list.%0A%23%20class%20ListNode(object)%3A%0A%23%20%20%20%20%20def%20__init__(self%2C%20val%3D0%2C%20next%3DNone)%3A%0A%23%20%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%23%20%20%20%20%20%20%20%20%20self.next%20%3D%20next%0Aclass%20Solution(object)%3A%0A%20%20%20%20def%20addTwoNumbers(self%2C%20l1%2C%20l2)%3A%0A%20%20%20%20%20%20%20%20\"\"\"%0A%20%20%20%20%20%20%20%20%3Atype%20l1%3A%20ListNode%0A%20%20%20%20%20%20%20%20%3Atype%20l2%3A%20ListNode%0A%20%20%20%20%20%20%20%20%3Artype%3A%20ListNode%0A%20%20%20%20%20%20%20%20\"\"\"%0A%09%09return%20l1%20%2B%20l2%20%0A%09%20%20%0A%09%20%20", 
+              "explanation": "This is an explanation", 
+              "name": "Brute Force"
+            }, 
+            {
+              "complexity_analysis": [
+                "This is a statement about runtime", 
+                "This is a statement about space complexity"
+              ], 
+              "encoded_code": "%23%20Definition%20for%20singly-linked%20list.%0A%23%20class%20ListNode(object)%3A%0A%23%20%20%20%20%20def%20__init__(self%2C%20val%3D0%2C%20next%3DNone)%3A%0A%23%20%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%23%20%20%20%20%20%20%20%20%20self.next%20%3D%20next%0Aclass%20Solution(object)%3A%0A%20%20%20%20def%20addTwoNumbers(self%2C%20l1%2C%20l2)%3A%0A%20%20%20%20%20%20%20%20\"\"\"%0A%20%20%20%20%20%20%20%20%3Atype%20l1%3A%20ListNode%0A%20%20%20%20%20%20%20%20%3Atype%20l2%3A%20ListNode%0A%20%20%20%20%20%20%20%20%3Artype%3A%20ListNode%0A%20%20%20%20%20%20%20%20\"\"\"%0A%09%09return%20l1%20%2B%20l2%20%0A%09%20%20%0A%09%20%20", 
+              "explanation": "This is an explanation for the best way", 
+              "name": "Smart Force"
+            }
+          ]
+        }, 
+        "hints": [
+            "Add the two numbers in O(1) time", 
+            "Add the two numbers"
+        ],
+        "constraints": [
+            "1 <= val, inc, m <= 100",
+            "0 <= idx <= 10^5"
+        ],
+        "related_topics": [
+            "Math", "Design"
+        ],
+        "companies": [
+            "Amazon", "Google"
+        ],
+        "stats": {
+          "accepted": 201000, 
+          "down": 211, 
+          "submissions": 401121, 
+          "up": 1234
+        }
+      },
+
+
+
+
+      "course-schedule-ii": {
+        "id" : 3,
+        "frequency": 88,
+        "difficulty": "Medium",
+        "arguments": [
+            {
+                "name": "numCourses",
+                "type": "int", 
+                "arg": true 
+            }, 
+            {
+                "name": "prerequisites",
+                "type": "List[List[int]]", 
+                "arg": true 
+            }
+        ],
+        "returnType": "List[List[int]]", 
+        "description": "There are a total of n courses you have to take labelled from 0 to n - 1. \n\nSome courses may have prerequisites, for example, if prerequisites[i] = [ai, bi] this means you must take the course bi before the course ai.<br><br/>Given the total number of courses numCourses and a list of the prerequisite pairs, return the ordering of courses you should take to finish all courses.\n\nIf there are many valid answers, return any of them. If it is impossible to finish all courses, return an empty array.", 
+        "examples": [
+          {
+            "input": "numCourses = 2, prerequisites = [[1,0]]", 
+            "output": "[0,1]",
+            "explanation": "There are a total of 2 courses to take. To take course 1 you should have finished course 0. So the correct course order is [0,1]."
+          }, 
+          {
+            "input": "numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]", 
+            "output": "[0,2,1,3]",
+            "explanation": "There are a total of 4 courses to take. To take course 3 you should have finished both courses 1 and 2. Both courses 1 and 2 should be taken after you finished course 0. So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3]."
+          },
+          {
+            "input": "numCourses = 1, prerequisites = []", 
+            "output": "[0]",
+            "explanation": "You just take the first class because there are no prerequisites to it."
+          }
+        ], 
+        "name": "Course Schedule II", 
+        "solution": {
+          "approaches": [
+            {
+              "complexity_analysis": [
+                "Time Complexity: O(V + E)O(V+E) where VV represents the number of vertices and EE represents the number of edges. Essentially we iterate through each node and each vertex in the graph once and only once.", 
+                "Space Complexity: O(V + E)O(V+E). We use the adjacency list to represent our graph initially. The space occupied is defined by the number of edges because for each node as the key, we have all its adjacent nodes in the form of a list as the value. Hence, O(E)"
+              ], 
+              "encoded_code": "from%20collections%20import%20defaultdict%0Aclass%20Solution%3A%0A%0A%20%20%20%20WHITE%20%3D%201%0A%20%20%20%20GRAY%20%3D%202%0A%20%20%20%20BLACK%20%3D%203%0A%0A%20%20%20%20def%20findOrder%28self%2C%20numCourses%2C%20prerequisites%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20%3Atype%20numCourses%3A%20int%0A%20%20%20%20%20%20%20%20%3Atype%20prerequisites%3A%20List%5BList%5Bint%5D%5D%0A%20%20%20%20%20%20%20%20%3Artype%3A%20List%5Bint%5D%0A%20%20%20%20%20%20%20%20%22%22%22%0A%0A%20%20%20%20%20%20%20%20%23%20Create%20the%20adjacency%20list%20representation%20of%20the%20graph%0A%20%20%20%20%20%20%20%20adj_list%20%3D%20defaultdict%28list%29%0A%0A%20%20%20%20%20%20%20%20%23%20A%20pair%20%5Ba%2C%20b%5D%20in%20the%20input%20represents%20edge%20from%20b%20--%3E%20a%0A%20%20%20%20%20%20%20%20for%20dest%2C%20src%20in%20prerequisites%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20adj_list%5Bsrc%5D.append%28dest%29%0A%0A%20%20%20%20%20%20%20%20topological_sorted_order%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20is_possible%20%3D%20True%0A%0A%20%20%20%20%20%20%20%20%23%20By%20default%20all%20vertces%20are%20WHITE%0A%20%20%20%20%20%20%20%20color%20%3D%20%7Bk%3A%20Solution.WHITE%20for%20k%20in%20range%28numCourses%29%7D%0A%20%20%20%20%20%20%20%20def%20dfs%28node%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20nonlocal%20is_possible%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Don%27t%20recurse%20further%20if%20we%20found%20a%20cycle%20already%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20not%20is_possible%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Start%20the%20recursion%0A%20%20%20%20%20%20%20%20%20%20%20%20color%5Bnode%5D%20%3D%20Solution.GRAY%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Traverse%20on%20neighboring%20vertices%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20node%20in%20adj_list%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20for%20neighbor%20in%20adj_list%5Bnode%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20color%5Bneighbor%5D%20%3D%3D%20Solution.WHITE%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dfs%28neighbor%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20elif%20color%5Bneighbor%5D%20%3D%3D%20Solution.GRAY%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20An%20edge%20to%20a%20GRAY%20vertex%20represents%20a%20cycle%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20is_possible%20%3D%20False%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Recursion%20ends.%20We%20mark%20it%20as%20black%0A%20%20%20%20%20%20%20%20%20%20%20%20color%5Bnode%5D%20%3D%20Solution.BLACK%0A%20%20%20%20%20%20%20%20%20%20%20%20topological_sorted_order.append%28node%29%0A%0A%20%20%20%20%20%20%20%20for%20vertex%20in%20range%28numCourses%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20If%20the%20node%20is%20unprocessed%2C%20then%20call%20dfs%20on%20it.%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20color%5Bvertex%5D%20%3D%3D%20Solution.WHITE%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dfs%28vertex%29%0A%0A%20%20%20%20%20%20%20%20return%20topological_sorted_order%5B%3A%3A-1%5D%20if%20is_possible%20else%20%5B%5D", 
+              "explanation": "Suppose we are at a node in our graph during the depth first traversal. Let's call this node A.\n\nNow we know how to get all the courses that have a particular course as a prerequisite. If a valid ordering of courses is possible, the course A would come before all the other set of courses that have it as a prerequisite. This idea for solving the problem can be explored using depth first search. Let's look at the pseudo-code before looking at the formal algorithm.", 
+              "name": "Using Depth First Search"
+            }, 
+            {
+              "complexity_analysis": [
+                "Time Complexity: O(V + E)O(V+E) where VV represents the number of vertices and EE represents the number of edges.", 
+                "Space Complexity: O(V + E)O(V+E). We use an intermediate queue data structure to keep all the nodes with 0 in-degree. "
+              ], 
+              "encoded_code": "from%20collections%20import%20defaultdict%2C%20deque%0Aclass%20Solution%3A%0A%0A%20%20%20%20def%20findOrder%28self%2C%20numCourses%2C%20prerequisites%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20%3Atype%20numCourses%3A%20int%0A%20%20%20%20%20%20%20%20%3Atype%20prerequisites%3A%20List%5BList%5Bint%5D%5D%0A%20%20%20%20%20%20%20%20%3Artype%3A%20List%5Bint%5D%0A%20%20%20%20%20%20%20%20%22%22%22%0A%0A%20%20%20%20%20%20%20%20%23%20Prepare%20the%20graph%0A%20%20%20%20%20%20%20%20adj_list%20%3D%20defaultdict%28list%29%0A%20%20%20%20%20%20%20%20indegree%20%3D%20%7B%7D%0A%20%20%20%20%20%20%20%20for%20dest%2C%20src%20in%20prerequisites%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20adj_list%5Bsrc%5D.append%28dest%29%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Record%20each%20node%27s%20in-degree%0A%20%20%20%20%20%20%20%20%20%20%20%20indegree%5Bdest%5D%20%3D%20indegree.get%28dest%2C%200%29%20%2B%201%0A%0A%20%20%20%20%20%20%20%20%23%20Queue%20for%20maintainig%20list%20of%20nodes%20that%20have%200%20in-degree%0A%20%20%20%20%20%20%20%20zero_indegree_queue%20%3D%20deque%28%5Bk%20for%20k%20in%20range%28numCourses%29%20if%20k%20not%20in%20indegree%5D%29%0A%0A%20%20%20%20%20%20%20%20topological_sorted_order%20%3D%20%5B%5D%0A%0A%20%20%20%20%20%20%20%20%23%20Until%20there%20are%20nodes%20in%20the%20Q%0A%20%20%20%20%20%20%20%20while%20zero_indegree_queue%3A%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Pop%20one%20node%20with%200%20in-degree%0A%20%20%20%20%20%20%20%20%20%20%20%20vertex%20%3D%20zero_indegree_queue.popleft%28%29%0A%20%20%20%20%20%20%20%20%20%20%20%20topological_sorted_order.append%28vertex%29%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Reduce%20in-degree%20for%20all%20the%20neighbors%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20vertex%20in%20adj_list%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20for%20neighbor%20in%20adj_list%5Bvertex%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20indegree%5Bneighbor%5D%20-%3D%201%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Add%20neighbor%20to%20Q%20if%20in-degree%20becomes%200%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20indegree%5Bneighbor%5D%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20zero_indegree_queue.append%28neighbor%29%0A%0A%20%20%20%20%20%20%20%20return%20topological_sorted_order%20if%20len%28topological_sorted_order%29%20%3D%3D%20numCourses%20else%20%5B%5D", 
+              "explanation": "This approach is much easier to think about intuitively as will be clear from the following point/fact about topological ordering.\n\nOur current algorithm is based on this idea. We first process all the nodes/course with 0 in-degree implying no prerequisite courses required. If we remove all these courses from the graph, along with their outgoing edges, we can find out the courses/nodes that should be processed next. These would again be the nodes with 0 in-degree. We can continuously do this until all the courses have been accounted for.", 
+              "name": "Using Node Indegree"
+            }
+          ]
+        }, 
+        "hints": [
+            "This problem is equivalent to finding the topological order in a directed graph. If a cycle exists, no topological ordering exists and therefore it will be impossible to take all courses.", 
+            "Topological sort could also be done via BFS."
+        ],
+        "constraints": [
+            "1 <= numCourses <= 2000",
+            "0 <= prerequisites.length <= numCourses * (numCourses - 1)",
+            "prerequisites[i].length == 2",
+            "0 <= ai, bi < numCourses",
+            "All the pairs [ai, bi] are distinct."
+        ],
+        "related_topics": [
+            "Depth-first Search", "Breadth-first Search", "Graph", "Topological Sort"
+        ],
+        "companies": [
+            "Amazon", "Google", "Facebook", "Apple", "Snapchat", "DoorDash"
+        ],
+        "stats": {
+          "accepted": 345900, 
+          "down": 156, 
+          "submissions": 821500, 
+          "up": 3107
+        }
+      }, 
+
+
+
+
+
+      "two-sum": {
+        "id" : 4,
+        "frequency": 44,
+
+        "difficulty": "Easy",
+        "arguments": [
+            {
+                "name": "nums",
+                "type": "arr", 
+                "arg": true 
+            }, 
+            {
+                "name": "target",
+                "type": "int", 
+                "arg": true 
+            }
+        ],
+        "returnType": "List[int]", 
+        "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.<br/><br/>\n You may assume that each input would have exactly one solution, and you may not use the same element twice. <br/> \n You can return the answer in any order.", 
+        "examples": [
+          {
+            "input": "nums = [2,7,11,15], target = 9", 
+            "output": "[0,1]",
+            "explanation": "Because nums[0] + nums[1] == 9, we return [0, 1]."
+          }, 
+          {
+            "input": "nums = [3,2,4], target = 6", 
+            "output": "[1,2]",
+            "explanation": "Because nums[1] + nums[2] == 6, we return [1, 2]"
+          },
+          {
+            "input": "nums = [3,3], target = 6", 
+            "output": "[0,1]",
+            "explanation": "Because nums[0] + nums[1] == 6, we return [0, 1]"
+          }
+        ], 
+        "name": "Two Sum", 
+        "solution": {
+          "approaches": [
+            {
+              "complexity_analysis": [
+                "Time complexity : O(n^2). For each element, we try to find its complement by looping through the rest of array which takes O(n) time. Therefore, the time complexity is O(n^2).", 
+                "Space complexity : O(1)."
+              ], 
+              "encoded_code": "public%20int%5B%5D%20twoSum%28int%5B%5D%20nums%2C%20int%20target%29%20%7B%0A%20%20%20%20for%20%28int%20i%20%3D%200%3B%20i%20%3C%20nums.length%3B%20i%2B%2B%29%20%7B%0A%20%20%20%20%20%20%20%20for%20%28int%20j%20%3D%20i%20%2B%201%3B%20j%20%3C%20nums.length%3B%20j%2B%2B%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20%28nums%5Bj%5D%20%3D%3D%20target%20-%20nums%5Bi%5D%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20new%20int%5B%5D%20%7B%20i%2C%20j%20%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20throw%20new%20IllegalArgumentException%28%22No%20two%20sum%20solution%22%29%3B%0A%7D", 
+              "explanation": "The brute force approach is simple. Loop through each element xx and find if there is another value that equals to target - x.", 
+              "name": "Brute Force"
+            }, 
+            {
+              "complexity_analysis": [
+                "Time complexity : O(n). We traverse the list containing nn elements only once. Each look up in the table costs only O(1) time.", 
+                "Space complexity : O(n). The extra space required depends on the number of items stored in the hash table, which stores at most n elements."
+              ], 
+              "encoded_code": "public%20int%5B%5D%20twoSum%28int%5B%5D%20nums%2C%20int%20target%29%20%7B%0A%20%20%20%20Map%3CInteger%2C%20Integer%3E%20map%20%3D%20new%20HashMap%3C%3E%28%29%3B%0A%20%20%20%20for%20%28int%20i%20%3D%200%3B%20i%20%3C%20nums.length%3B%20i%2B%2B%29%20%7B%0A%20%20%20%20%20%20%20%20int%20complement%20%3D%20target%20-%20nums%5Bi%5D%3B%0A%20%20%20%20%20%20%20%20if%20%28map.containsKey%28complement%29%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20new%20int%5B%5D%20%7B%20map.get%28complement%29%2C%20i%20%7D%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20map.put%28nums%5Bi%5D%2C%20i%29%3B%0A%20%20%20%20%7D%0A%20%20%20%20throw%20new%20IllegalArgumentException%28%22No%20two%20sum%20solution%22%29%3B%0A%7D", 
+              "explanation": "It turns out we can do it in one-pass. While we iterate and inserting elements into the table, we also look back to check if current element's complement already exists in the table. If it exists, we have found a solution and return immediately.", 
+              "name": "One-pass Hash Table"
+            }
+          ]
+        }, 
+        "hints": [
+            "This problem is equivalent to finding the topological order in a directed graph. If a cycle exists, no topological ordering exists and therefore it will be impossible to take all courses.", 
+            "Topological sort could also be done via BFS."
+        ],
+        "constraints": [
+            "<pre id='inline-style-description'>2 <= nums.length <= 103</pre>",
+            "<pre id='inline-style-description'>-109 <= nums[i] <= 109</pre>",
+            "prerequisites[i].length == 2",
+            "-109 <= target <= 109 ",
+            "<b>Only one valid answer exists.</b>"
+        ],
+        "related_topics": [
+            "Array", "Hash Table"
+        ],
+        "companies": [
+            "Amazon", "Google", "Facebook", "Apple", "Snapchat", "Expedia", "Uber"
+        ],
+        "stats": {
+          "accepted": 3691340, 
+          "down": 659, 
+          "submissions": 8002852, 
+          "up": 18589
+        }
+      },
+
+
+
+
+
+
+
+
+      "word-pattern":
+      {"id":5,
+        "frequency": 12,
+        "name":" Word Pattern",
+
+        "arguments": [
+          {
+              "name": "pattern",
+              "type": "str", 
+              "arg": true 
+          }, 
+          {
+              "name": "s",
+              "type": "str", 
+              "arg": true 
+          }
+      ],
+      "returnType": "bool", 
+
+        "description":"Given a pattern and a string s, find if s follows the same pattern.\n\nHere follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in s.",
+        "examples":[
+          {
+          "input": "pattern = \"abba\", s = dog cat cat dog",
+          "output": "true"
+        }, 
+        {
+
+          "input":  "pattern = \"abba\", s = \"dog cat cat fish\" " ,
+          "output": "false"
+        }
+
+        ],
+        
+          "constraints":["<pre id='inline-style-description'>1 <= pattern.length <= 300</pre>","\tpattern contains only lower-case English letters.","\t1 <= s.length <= 3000","\ts contains only lower-case English letters and spaces ' '.","\ts does not contain any leading or trailing spaces.","\tAll the words in s are separated by a single space."],
+        "difficulty":"Easy",
+        "stats": {
+          "up":"1635","down":"202","acceptances":"239,456","submissions":"626,430"
+
+        },
+        "related_topics": [
+          "Array", "Hash Table"
+      ],
+      "companies": [
+          "Amazon", "Google", "Facebook", "Apple", "Snapchat", "Expedia", "Uber"
+      ],
+      "hints": [
+        "This problem is equivalent to finding the topological order in a directed graph. If a cycle exists, no topological ordering exists and therefore it will be impossible to take all courses.", 
+        "Topological sort could also be done via BFS."
+     ],
+
+
+        
+
+        "solution": {
+          "approaches": [
+            {
+              "complexity_analysis": [
+                "Time complexity : O(n^2). For each element, we try to find its complement by looping through the rest of array which takes O(n) time. Therefore, the time complexity is O(n^2).", 
+                "Space complexity : O(1)."
+              ], 
+              "encoded_code": "public%20int%5B%5D%20twoSum%28int%5B%5D%20nums%2C%20int%20target%29%20%7B%0A%20%20%20%20for%20%28int%20i%20%3D%200%3B%20i%20%3C%20nums.length%3B%20i%2B%2B%29%20%7B%0A%20%20%20%20%20%20%20%20for%20%28int%20j%20%3D%20i%20%2B%201%3B%20j%20%3C%20nums.length%3B%20j%2B%2B%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20%28nums%5Bj%5D%20%3D%3D%20target%20-%20nums%5Bi%5D%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20new%20int%5B%5D%20%7B%20i%2C%20j%20%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20throw%20new%20IllegalArgumentException%28%22No%20two%20sum%20solution%22%29%3B%0A%7D", 
+              "explanation": "The brute force approach is simple. Loop through each element xx and find if there is another value that equals to target - x.", 
+              "name": "Brute Force"
+            }, 
+            {
+              "complexity_analysis": [
+                "Time complexity : O(n). We traverse the list containing nn elements only once. Each look up in the table costs only O(1) time.", 
+                "Space complexity : O(n). The extra space required depends on the number of items stored in the hash table, which stores at most n elements."
+              ], 
+              "encoded_code": "public%20int%5B%5D%20twoSum%28int%5B%5D%20nums%2C%20int%20target%29%20%7B%0A%20%20%20%20Map%3CInteger%2C%20Integer%3E%20map%20%3D%20new%20HashMap%3C%3E%28%29%3B%0A%20%20%20%20for%20%28int%20i%20%3D%200%3B%20i%20%3C%20nums.length%3B%20i%2B%2B%29%20%7B%0A%20%20%20%20%20%20%20%20int%20complement%20%3D%20target%20-%20nums%5Bi%5D%3B%0A%20%20%20%20%20%20%20%20if%20%28map.containsKey%28complement%29%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20new%20int%5B%5D%20%7B%20map.get%28complement%29%2C%20i%20%7D%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20map.put%28nums%5Bi%5D%2C%20i%29%3B%0A%20%20%20%20%7D%0A%20%20%20%20throw%20new%20IllegalArgumentException%28%22No%20two%20sum%20solution%22%29%3B%0A%7D", 
+              "explanation": "It turns out we can do it in one-pass. While we iterate and inserting elements into the table, we also look back to check if current element's complement already exists in the table. If it exists, we have found a solution and return immediately.", 
+              "name": "One-pass Hash Table"
+            }
+          ]
+        }
+
+      },
+
+
+
+
+
+      "flip-game": {
+        "frequency": 11,
+        "description": "You are playing the following Flip Game with your friend: Given a string that contains only these two characters: + and -, you and your friend take turns to flip two consecutive <pre id='inline-style-description'>\"++\"</pre> into <pre id='inline-style-description'>\"--\"</pre>. The game ends when a person can no longer make a move and therefore the other person will be the winner.<br/><br/>Write a function to compute all possible states of the string after one valid move.",
+        "stats": {
+          "up": 12451, 
+          "down": 123, 
+          "acceptances":12423,
+          "submissions": 4262544 
+        }, 
+        "difficulty": "Easy", 
+        "returnType": "List[str]",      
+        "arguments": [
+          {
+              "name": "s",
+              "type": "str", 
+              "arg": true 
+          }
+        ],
+        "name": "Flip Game", 
+        "id": 6,
+        "examples": [
+          {
+            "input": "s= \"++++\"",
+            "output": "[\n\"--++\"\n\"+--+\"\n\"++--\"]"
+          }
+        ], 
+        "related_topics": [
+          "string"
+        ], 
+
+        "companies": [
+          "Google"
+        ]
+
+
+
+      }
+
+
+
+
+
+
+
+
+    }
+}

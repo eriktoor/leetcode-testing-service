@@ -90,5 +90,7 @@ def submit():
     return json.dumps(info.__dict__)
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0")
+    ip4 = "68.173.145.29"
+    local = "0.0.0.0"
+    app.run(debug=True, host=local)
     # test_file("add_nums")

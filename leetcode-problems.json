@@ -1,0 +1,123 @@
+
+    "name": {
+      "sum-of-two-integers": {
+        "id": 1, 
+        "difficulty": "Medium",
+        "description": "Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.", 
+        "examples": [
+            {
+                "input": "a = 1, b = 2", 
+                "output": "3",
+                "explanation": "1 + 2 = 3"
+              }, 
+              {
+                "input": "a = -2, b = 3", 
+                "output": "1",
+                "explanation": "3 + (-2) = 1"
+              }
+        ], 
+        "name": "Sum of Two Integers", 
+        "solution": {
+          "approaches": [
+            {
+              "complexity_analysis": [
+                "This is a statement about runtime", 
+                "This is a statement about space complexity"
+              ], 
+              "encoded_code": "%23%20Definition%20for%20singly-linked%20list.%0A%23%20class%20ListNode(object)%3A%0A%23%20%20%20%20%20def%20__init__(self%2C%20val%3D0%2C%20next%3DNone)%3A%0A%23%20%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%23%20%20%20%20%20%20%20%20%20self.next%20%3D%20next%0Aclass%20Solution(object)%3A%0A%20%20%20%20def%20addTwoNumbers(self%2C%20l1%2C%20l2)%3A%0A%20%20%20%20%20%20%20%20\"\"\"%0A%20%20%20%20%20%20%20%20%3Atype%20l1%3A%20ListNode%0A%20%20%20%20%20%20%20%20%3Atype%20l2%3A%20ListNode%0A%20%20%20%20%20%20%20%20%3Artype%3A%20ListNode%0A%20%20%20%20%20%20%20%20\"\"\"%0A%09%09return%20l1%20%2B%20l2%20%0A%09%20%20%0A%09%20%20", 
+              "explanation": "This is an explanation", 
+              "name": "Brute Force"
+            }, 
+            {
+              "complexity_analysis": [
+                "This is a statement about runtime", 
+                "This is a statement about space complexity"
+              ], 
+              "encoded_code": "%23%20Definition%20for%20singly-linked%20list.%0A%23%20class%20ListNode(object)%3A%0A%23%20%20%20%20%20def%20__init__(self%2C%20val%3D0%2C%20next%3DNone)%3A%0A%23%20%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%23%20%20%20%20%20%20%20%20%20self.next%20%3D%20next%0Aclass%20Solution(object)%3A%0A%20%20%20%20def%20addTwoNumbers(self%2C%20l1%2C%20l2)%3A%0A%20%20%20%20%20%20%20%20\"\"\"%0A%20%20%20%20%20%20%20%20%3Atype%20l1%3A%20ListNode%0A%20%20%20%20%20%20%20%20%3Atype%20l2%3A%20ListNode%0A%20%20%20%20%20%20%20%20%3Artype%3A%20ListNode%0A%20%20%20%20%20%20%20%20\"\"\"%0A%09%09return%20l1%20%2B%20l2%20%0A%09%20%20%0A%09%20%20", 
+              "explanation": "This is an explanation for the best way", 
+              "name": "Smart Force"
+            }
+          ]
+        }, 
+        "hints": [
+            "Add the two numbers in O(1) time", 
+            "Add the two numbers"
+        ],
+        "constraints": [
+            "1 <= val, inc, m <= 100",
+            "0 <= idx <= 10^5"
+        ],
+        "related_topics": [
+            "Math", "Design"
+        ],
+        "companies": [
+            "Amazon", "Google"
+        ],
+        "stats": {
+          "accepted": 201000, 
+          "down": 211, 
+          "submissions": 401121, 
+          "up": 1234
+        }
+       },
+      "anotha-one": {
+        "id" : 2,
+        "difficulty": "Easy",
+        "description": "Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.", 
+        "examples": [
+          {
+            "input": "a = 1, b = 2", 
+            "output": "3",
+            "explanation": "1 + 2 = 3"
+          }, 
+          {
+            "input": "a = -2, b = 3", 
+            "output": "1",
+            "explanation": "3 + (-2) = 1"
+          }
+        ], 
+        "name": "Anotha 1", 
+        "solution": {
+          "approaches": [
+            {
+              "complexity_analysis": [
+                "This is a statement about runtime", 
+                "This is a statement about space complexity"
+              ], 
+              "encoded_code": "%23%20Definition%20for%20singly-linked%20list.%0A%23%20class%20ListNode(object)%3A%0A%23%20%20%20%20%20def%20__init__(self%2C%20val%3D0%2C%20next%3DNone)%3A%0A%23%20%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%23%20%20%20%20%20%20%20%20%20self.next%20%3D%20next%0Aclass%20Solution(object)%3A%0A%20%20%20%20def%20addTwoNumbers(self%2C%20l1%2C%20l2)%3A%0A%20%20%20%20%20%20%20%20\"\"\"%0A%20%20%20%20%20%20%20%20%3Atype%20l1%3A%20ListNode%0A%20%20%20%20%20%20%20%20%3Atype%20l2%3A%20ListNode%0A%20%20%20%20%20%20%20%20%3Artype%3A%20ListNode%0A%20%20%20%20%20%20%20%20\"\"\"%0A%09%09return%20l1%20%2B%20l2%20%0A%09%20%20%0A%09%20%20", 
+              "explanation": "This is an explanation", 
+              "name": "Brute Force"
+            }, 
+            {
+              "complexity_analysis": [
+                "This is a statement about runtime", 
+                "This is a statement about space complexity"
+              ], 
+              "encoded_code": "%23%20Definition%20for%20singly-linked%20list.%0A%23%20class%20ListNode(object)%3A%0A%23%20%20%20%20%20def%20__init__(self%2C%20val%3D0%2C%20next%3DNone)%3A%0A%23%20%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%23%20%20%20%20%20%20%20%20%20self.next%20%3D%20next%0Aclass%20Solution(object)%3A%0A%20%20%20%20def%20addTwoNumbers(self%2C%20l1%2C%20l2)%3A%0A%20%20%20%20%20%20%20%20\"\"\"%0A%20%20%20%20%20%20%20%20%3Atype%20l1%3A%20ListNode%0A%20%20%20%20%20%20%20%20%3Atype%20l2%3A%20ListNode%0A%20%20%20%20%20%20%20%20%3Artype%3A%20ListNode%0A%20%20%20%20%20%20%20%20\"\"\"%0A%09%09return%20l1%20%2B%20l2%20%0A%09%20%20%0A%09%20%20", 
+              "explanation": "This is an explanation for the best way", 
+              "name": "Smart Force"
+            }
+          ]
+        }, 
+        "hints": [
+            "Add the two numbers in O(1) time", 
+            "Add the two numbers"
+        ],
+        "constraints": [
+            "1 <= val, inc, m <= 100",
+            "0 <= idx <= 10^5"
+        ],
+        "related_topics": [
+            "Math", "Design"
+        ],
+        "companies": [
+            "Amazon", "Google"
+        ],
+        "stats": {
+          "accepted": 201000, 
+          "down": 211, 
+          "submissions": 401121, 
+          "up": 1234
+        }
+      }
+    }
