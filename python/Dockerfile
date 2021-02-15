@@ -18,4 +18,4 @@ RUN pip3 install flask flask_cors multiprocess
 COPY . .
 
 EXPOSE 5000
-CMD [ "python3", "oo_app.py" ]
+CMD [ "python3", "app.py" ]

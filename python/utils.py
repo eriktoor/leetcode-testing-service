@@ -19,18 +19,22 @@ def build_file(name, data):
 
 import os 
 
-def cleanup(question, filename): 
+def cleanup(file_dir, filename): 
     """
     @desc delete a file and its pycache given the directory, name 
     @args
-        @arg1 question, a string representing the name of a directory 
+        @arg1 file_dir, a string representing the name of a directory 
         @arg2 filename, a string representing the name of a file
     @ret void, will just delete a file
     """
     from os import listdir 
 
-    for val in listdir("{0}/__pycache__".format(question)): 
-        os.remove("{0}/__pycache__/{1}".format(question, val))
-    os.remove("{0}/{1}.py".format(question, filename))
+    for val in listdir("{0}/__pycache__".format(file_dir)): 
+        DELETE_PATH = "{0}/__pycache__/{1}".format(file_dir, val) 
+        os.remove(DELETE_PATH)
+        print("DELETED ", DELETE_PATH)
+    FILE_PATH = "{0}/{1}.py".format(file_dir, filename) 
+    os.remove(FILE_PATH)
+    print("DELETED ", FILE_PATH)
 
 

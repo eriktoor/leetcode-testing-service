@@ -184,18 +184,22 @@ def execute_testcase(ret, testcase, user_method, sol_method):
 
 
 
-def test_file(q, file, testcase=None): 
+def test_file(file_dir, file, testcase=None): 
     # https://stackoverflow.com/questions/8718885/import-module-from-string-variable
     # import importlib
     # i = importlib.import_module("matplotlib.text")
     # package = question + ".user_file"
-
+    q = file_dir.split("/")[1]
     ret = info(q, testcase, file) #JSON that will be returned to the user 
+
+    file_location = "{0}/{1}".format(file_dir, file)
+    user_module_path = file_location.replace("/", ".") # "problem." + q + "." + file
+    sol_module_path = "{0}/{1}".format(file_dir, "solution").replace("/", ".")   # "problem." + q + ".solution"
 
     ###################################################################
     # STEP 1: Get Code for User and Solution File and Ensure that there are no errors 
     ###################################################################
-    user, err = check_syntax(q + "." + file)
+    user, err = check_syntax(user_module_path)
 
     if err:
         ret.time_started = time.time()
@@ -206,7 +210,7 @@ def test_file(q, file, testcase=None):
         ret.cleanup()
         return ret
 
-    sol = importlib.import_module(q + ".solution") 
+    sol = importlib.import_module(sol_module_path) 
 
     ###################################################################
     # STEP 2: Get User Methods 
@@ -239,7 +243,7 @@ def test_file(q, file, testcase=None):
     
     # Run all of the testcases if the user clicked `Submit Code`
     ret.start_timer()
-    with open("{0}/cases.txt".format(q)) as f: 
+    with open("problem/{0}/cases.txt".format(q)) as f: 
         lines = f.readlines()
 
         for line in lines:

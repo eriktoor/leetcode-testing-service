@@ -1,10 +1,7 @@
 #Using More Routes
-# from flask import request
-# from flask import jsonify
 
 """
-http://127.0.0.1:5000/test?q=add_nums&data=def%20add_nums(a,b):%20\n\tprint(%22hello%22)\n\treturn%20a%20PLUS%20b
-http://127.0.0.1:5000/test?q=add_nums&data=def%20hello_world():%20\n\tprint(%22hello%20world%22)
+Go to README.md for directions 
 """
 
 from flask import Flask, request 
@@ -39,19 +36,22 @@ def run_code():
     ###################################################################
     import random 
     filename =  "user_file-"+ str(int(time.time())) + "-"  + str(random.randrange(1,100))
-    build_file("{0}/{1}.py".format(question, filename), data)
+    file_dir = "problem/{0}".format(question)
+    file_location = "problem/{0}/{1}.py".format(question, filename)
+
+    build_file(file_location, data)
 
     ###################################################################
     # STEP 3: Get API Output and Return it to User
     ###################################################################
-    info = test_file(question, filename, testcase)    
+    info = test_file(file_dir, filename, testcase)    
     print("Took ", time.time() - s, "seconds to run do run_code test for question ", question, " and testcase ", testcase.replace("\n", " ") )
     print(info.__dict__)
 
     ###################################################################
     # STEP 4: Delete Created Files
     ###################################################################
-    cleanup(question, filename)
+    cleanup(file_dir, filename)
 
 
     return json.dumps(info.__dict__)
@@ -72,22 +72,25 @@ def submit():
     ###################################################################
     import random 
     filename =  "user_file-"+ str(int(time.time())) + "-"  + str(random.randrange(1,100))
-    build_file("{0}/{1}.py".format(question, filename), data)
+    file_dir = "problem/{0}".format(question)
+    file_location = "problem/{0}/{1}.py".format(question, filename)
+
+    build_file(file_location, data)
 
     ###################################################################
     # STEP 3: Get API Output and Return it to User
     ###################################################################
-    info = test_file(question, filename)    
+    info = test_file(file_dir, filename)    
     print("Took ", time.time() - s, "seconds to run do submit_code test for question ", question )
     print(info.__dict__)
 
     ###################################################################
     # STEP 4: Delete Created Files
     ###################################################################
-    cleanup(question, filename)
+    cleanup(file_dir, filename)
 
 
-    return jsonify(json.dumps(info.__dict__))
+    return json.dumps(info.__dict__)
 
 if __name__ == "__main__":
     ip4 = "68.173.145.29"
