@@ -7,7 +7,7 @@ http://127.0.0.1:5000/test?q=add_nums&data=def%20add_nums(a,b):%20\n\tprint(%22h
 http://127.0.0.1:5000/test?q=add_nums&data=def%20hello_world():%20\n\tprint(%22hello%20world%22)
 """
 
-from flask import Flask, request, jsonify 
+from flask import Flask, request 
 from flask_cors import CORS
 
 
@@ -87,7 +87,7 @@ def submit():
     cleanup(question, filename)
 
 
-    return json.dumps(info.__dict__)
+    return jsonify(json.dumps(info.__dict__))
 
 if __name__ == "__main__":
     ip4 = "68.173.145.29"

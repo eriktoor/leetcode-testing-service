@@ -53,7 +53,7 @@ class info():
     def set_time(self): 
         self.time_ended = time.time() 
         time_elasped = time.time() - self.time_started  
-        self.time = round(1000*time_elasped, 0)
+        self.time = round(1 + 1000*time_elasped, 0)
 
     def change_error(self):        
         if not self.std_out: 

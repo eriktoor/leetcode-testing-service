@@ -33,3 +33,4 @@ def cleanup(question, filename):
         os.remove("{0}/__pycache__/{1}".format(question, val))
     os.remove("{0}/{1}.py".format(question, filename))
 
+
